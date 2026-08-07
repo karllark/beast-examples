@@ -96,7 +96,12 @@ condense_logT_delta = 0.05
 condense_logL_delta = 0.05
 
 # Stellar Atmospheres library definition
-osl = stellib.Tlusty() + stellib.Kurucz()
+osl = stellib.Tlusty2025() + stellib.BOSZ2024()
+# osl = stellib.Tlusty() + stellib.Kurucz()
+# osl = stellib.Tlusty2025()
+# osl = stellib.Tlusty()
+# osl = stellib.BOSZ2024()
+# osl = stellib.Kurucz()
 
 #####################
 # Dust Parameters
@@ -104,11 +109,10 @@ osl = stellib.Tlusty() + stellib.Kurucz()
 
 # Dust extinction grid definition
 # recommended extinction mixture model
-#extA = extinction.Generalized_DustExt(curve='G23')
-#extB = extinction.Generalized_DustExt(curve='G24_SMCAvg')
-#extLaw = extinction.Generalized_RvFALaw(ALaw=extA, BLaw=extB)
-extLaw = extinction.Generalized_RvFALaw(ALaw=extinction.Generalized_DustExt(curve='F19'), BLaw=extinction.Generalized_DustExt(curve='G03_SMCBar'))
-
+extA = extinction.Generalized_DustExt(curve='G23')
+extB = extinction.Generalized_DustExt(curve='G24_SMCAvg')
+extLaw = extinction.Generalized_RvFALaw(ALaw=extA, BLaw=extB)
+#extLaw = extinction.Generalized_RvFALaw(ALaw=extinction.Generalized_DustExt(curve='F19'), BLaw=extinction.Generalized_DustExt(curve='G03_SMCBar'))
 
 # A(V): dust column in magnitudes
 #   acceptable avs > 0.0
